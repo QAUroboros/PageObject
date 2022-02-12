@@ -1,20 +1,17 @@
 package test;
 
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-
-import java.io.File;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class FirstTest {
+public class practicForms {
 
     @BeforeAll
-    static void testBox() {
+    static void SettingsBrowser() {
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = "1980x1080";
         Configuration.holdBrowserOpen = true;
@@ -22,7 +19,7 @@ public class FirstTest {
 
 
     @Test
-    void first() {
+    void testForm() {
         open("/automation-practice-form");
         $(".main-header").shouldHave(text("Practice Form"));
         $("#firstName").setValue("Artem");
