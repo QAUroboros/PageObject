@@ -8,10 +8,10 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class practicForms {
+public class PracticForms {
 
     @BeforeAll
-    static void SettingsBrowser() {
+    static void setup() {
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = "1980x1080";
         Configuration.holdBrowserOpen = true;
