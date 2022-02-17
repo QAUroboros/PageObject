@@ -11,85 +11,110 @@ import static com.codeborne.selenide.Selenide.open;
 
 
 public class RegistrationPage {
-//components
+    //components
     CalendarComponent calendarComponent = new CalendarComponent();
 
-
     //Locator
-    SelenideElement firstNameInput = $("#firstName");
-    SelenideElement lastNameInput = $("#lastName");
-    SelenideElement userEmailInput = $("#userEmail");
-    SelenideElement userNumberInput = $("#userNumber");
+    private SelenideElement
+            mainHeader = $(".main-header"),
+            firstNameInput = $("#firstName"),
+            lastNameInput = $("#lastName"),
+            userEmailInput = $("#userEmail"),
+            userNumberInput = $("#userNumber"),
+            genterWrapper = $("#genterWrapper"),
+            dateOfBirthInput = $("#dateOfBirthInput"),
+            subjectsInput = $("#subjectsInput"),
+            uploadPicture = $("#uploadPicture"),
+            ScrollSubmit = $("#submit"),
+            currentAddress = $("#currentAddress"),
+            State = $("#react-select-3-input"),
+            City = $("#react-select-4-input"),
+            buttonSibmit = $("#submit"),
+            resultTable = $(".table-responsive");
     public static SelenideElement setMusic = $(byText("Music"));
 
-//actions
-public void openPage(){
-    open("/automation-practice-form");
-    $(".main-header").shouldHave(text("Practice Form"));
-}
+    //actions
+    public RegistrationPage openPage() {
+        open("/automation-practice-form");
+        mainHeader.shouldHave(text("Practice Form"));
+        return this;
+    }
 
-public void setFirstName(String firstName){
-    firstNameInput.setValue(firstName);
-}
+    public RegistrationPage setFirstName(String firstName) {
+        firstNameInput.setValue(firstName);
+        return this;
+    }
 
-public void setlastName(String lastName){
-    lastNameInput.setValue(lastName);
-}
+    public RegistrationPage setlastName(String lastName) {
+        lastNameInput.setValue(lastName);
+        return this;
+    }
 
-public void setUserEmail(String userEmail){
-    userEmailInput.setValue(userEmail);
-}
+    public RegistrationPage setUserEmail(String userEmail) {
+        userEmailInput.setValue(userEmail);
+        return this;
+    }
 
-public void setGender(){
-    $("#genterWrapper").$(byText("Male")).click();
-}
+    public RegistrationPage setGender(String gender) {
+        genterWrapper.$(byText(gender)).click();
+        return this;
+    }
 
-    public void setUserNumber(String userNumber) {
+    public RegistrationPage setUserNumber(String userNumber) {
         userNumberInput.setValue(userNumber);
+        return this;
     }
 
-    public void setBirthDate (String day, String month, String year){
-        $("#dateOfBirthInput").click();
+    public RegistrationPage setBirthDate(String day, String month, String year) {
+        dateOfBirthInput.click();
         calendarComponent.setDate(day, month, year);
+        return this;
     }
 
-    public void setSubjectsInput(){
-        $("#subjectsInput").click();
-        $("#subjectsInput").setValue("m").pressEnter();
+    public RegistrationPage setSubjectsInput(String subject) {
+        subjectsInput.click();
+        subjectsInput.setValue(subject).pressEnter();
+        return this;
     }
 
-
-public void setUploadPicture(){
-    $("#uploadPicture").uploadFromClasspath("1.jpg");
-}
-    public void setScroll(){
-        $("#submit").scrollTo();
-
-    }
-    public void setCurrentAddress(){
-        $("#currentAddress").click();
-        $("#currentAddress").setValue("Kazakhstan");
+    public RegistrationPage setUploadPicture(String picture) {
+        uploadPicture.uploadFromClasspath(picture);
+        return this;
     }
 
-    public void setState(){
-        $("#react-select-3-input").doubleClick();
-        $("#react-select-3-input").setValue("N").pressEnter();
-    }
-    public void setCity(){
-        $("#react-select-4-input").doubleClick();
-        $("#react-select-4-input").setValue("D").pressEnter();
-    }
-    public void setSubmit(){
-        $("#submit").click();
+    public RegistrationPage setScroll() {
+        ScrollSubmit.scrollTo();
+        return this;
     }
 
-//Проверки
-    public void setCheckForm(){
-        $(".table-responsive").shouldHave(text("Artem Krivoshein"),
-                text("krivo6ein@gmail.com"), text("Male"), text("7078499942"), text("08 March,2022"),
-                text("Maths"), text("Music"), text("1.jpg"), text("Kazakhstan"), text("NCR Delhi"));
+    public RegistrationPage setCurrentAddress(String address) {
+        currentAddress.click();
+        currentAddress.setValue(address);
+        return this;
     }
 
+    public RegistrationPage setState(String state) {
+        State.doubleClick();
+        State.setValue(state).pressEnter();
+        return this;
+    }
+
+    public RegistrationPage setCity(String citiez) {
+        City.doubleClick();
+        City.setValue(citiez).pressEnter();
+        return this;
+    }
+
+    public RegistrationPage setSubmit() {
+        buttonSibmit.click();
+        return this;
+    }
+
+    //Проверки
+    public RegistrationPage setCheckForm(String key, String value) {
+        resultTable.$(byText(key)).parent().shouldHave(text(value));
+        return this;
+    }
 
 }
 
