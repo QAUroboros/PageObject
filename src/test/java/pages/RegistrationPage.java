@@ -15,22 +15,7 @@ public class RegistrationPage {
     CalendarComponent calendarComponent = new CalendarComponent();
 
     //Locator
-    private SelenideElement
-            mainHeader = $(".main-header"),
-            firstNameInput = $("#firstName"),
-            lastNameInput = $("#lastName"),
-            userEmailInput = $("#userEmail"),
-            userNumberInput = $("#userNumber"),
-            genterWrapper = $("#genterWrapper"),
-            dateOfBirthInput = $("#dateOfBirthInput"),
-            subjectsInput = $("#subjectsInput"),
-            uploadPicture = $("#uploadPicture"),
-            ScrollSubmit = $("#submit"),
-            currentAddress = $("#currentAddress"),
-            State = $("#react-select-3-input"),
-            City = $("#react-select-4-input"),
-            buttonSibmit = $("#submit"),
-            resultTable = $(".table-responsive");
+    private SelenideElement mainHeader = $(".main-header"), firstNameInput = $("#firstName"), lastNameInput = $("#lastName"), userEmailInput = $("#userEmail"), userNumberInput = $("#userNumber"), genterWrapper = $("#genterWrapper"), dateOfBirthInput = $("#dateOfBirthInput"), subjectsInput = $("#subjectsInput"), uploadPicture = $("#uploadPicture"), ScrollSubmit = $("#submit"), currentAddress = $("#currentAddress"), State = $("#react-select-3-input"), City = $("#react-select-4-input"), buttonSibmit = $("#submit"), resultTable = $(".table-responsive");
     public static SelenideElement setMusic = $(byText("Music"));
 
     //actions

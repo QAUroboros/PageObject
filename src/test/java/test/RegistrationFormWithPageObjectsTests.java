@@ -40,7 +40,7 @@ public class RegistrationFormWithPageObjectsTests {
         registrationPage.setUserEmail(userEmail);
         registrationPage.setGender(gender);
         registrationPage.setUserNumber(userNumber);
-        registrationPage.setBirthDate (day,month,year);
+        registrationPage.setBirthDate(day, month, year);
         registrationPage.setSubjectsInput(subject);
         registrationPage.setMusic.click();
         registrationPage.setUploadPicture(picture);
@@ -51,7 +51,7 @@ public class RegistrationFormWithPageObjectsTests {
         registrationPage.setSubmit();
 
         //проверка значений
-        registrationPage.setCheckForm("Student Name", firstName + lastName );
+        registrationPage.setCheckForm("Student Name", firstName + lastName);
         registrationPage.setCheckForm("Student Email", userEmail);
         registrationPage.setCheckForm("Gender", gender);
         registrationPage.setCheckForm("Mobile", userNumber);
