@@ -14,8 +14,8 @@ public class RegistrationFormWithPageObjectsTests {
     String userEmail = "krivo6ein@gmail.com";
     String gender = "Male";
     String userNumber = "7078499942";
-    String day = "30";
-    String month = "July";
+    String day = "23";
+    String month = "April";
     String year = "2012";
     String subject = "Maths";
     String hobbies = "Music";
@@ -40,22 +40,22 @@ public class RegistrationFormWithPageObjectsTests {
         registrationPage.setUserEmail(userEmail);
         registrationPage.setGender(gender);
         registrationPage.setUserNumber(userNumber);
-        registrationPage.setBirthDate(day, month, year);
-        registrationPage.setSubjectsInput(subject);
-        registrationPage.setMusic.click();
-        registrationPage.setUploadPicture(picture);
         registrationPage.setScroll();
+        registrationPage.setBirthDate(year,month,day);
+        registrationPage.setSubjectsInput(subject);
+        registrationPage.setMusic(hobbies);
+        registrationPage.setUploadPicture(picture);
         registrationPage.setCurrentAddress(address);
         registrationPage.setState(state);
         registrationPage.setCity(citiez);
         registrationPage.setSubmit();
 
         //проверка значений
-        registrationPage.setCheckForm("Student Name", firstName + lastName);
+        registrationPage.setCheckForm("Student Name", firstName + " " + lastName);
         registrationPage.setCheckForm("Student Email", userEmail);
         registrationPage.setCheckForm("Gender", gender);
         registrationPage.setCheckForm("Mobile", userNumber);
-        registrationPage.setCheckForm("Date of Birth", day + month + year);
+        registrationPage.setCheckForm("Date of Birth", day + month + "," + year);
         registrationPage.setCheckForm("Subjects", subject);
         registrationPage.setCheckForm("Hobbies", hobbies);
         registrationPage.setCheckForm("Picture", picture);

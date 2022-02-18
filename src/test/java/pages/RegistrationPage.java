@@ -15,8 +15,23 @@ public class RegistrationPage {
     CalendarComponent calendarComponent = new CalendarComponent();
 
     //Locator
-    private SelenideElement mainHeader = $(".main-header"), firstNameInput = $("#firstName"), lastNameInput = $("#lastName"), userEmailInput = $("#userEmail"), userNumberInput = $("#userNumber"), genterWrapper = $("#genterWrapper"), dateOfBirthInput = $("#dateOfBirthInput"), subjectsInput = $("#subjectsInput"), uploadPicture = $("#uploadPicture"), ScrollSubmit = $("#submit"), currentAddress = $("#currentAddress"), State = $("#react-select-3-input"), City = $("#react-select-4-input"), buttonSibmit = $("#submit"), resultTable = $(".table-responsive");
-    public static SelenideElement setMusic = $(byText("Music"));
+    private final SelenideElement mainHeader = $(".main-header");
+    private final SelenideElement firstNameInput = $("#firstName");
+    private final SelenideElement lastNameInput = $("#lastName");
+    private final SelenideElement userEmailInput = $("#userEmail");
+    private final SelenideElement userNumberInput = $("#userNumber");
+    private final SelenideElement genterWrapper = $("#genterWrapper");
+    private final SelenideElement dateOfBirthInput = $("#dateOfBirthInput");
+    private final SelenideElement subjectsInput = $("#subjectsInput");
+    private final SelenideElement hobbiesInput = $(".practice-form-wrapper");
+    private final SelenideElement uploadPicture = $("#uploadPicture");
+    private final SelenideElement ScrollSubmit = $("#submit");
+    private final SelenideElement currentAddress = $("#currentAddress");
+    private final SelenideElement State = $("#react-select-3-input");
+    private final SelenideElement City = $("#react-select-4-input");
+    private final SelenideElement buttonSibmit = $("#submit");
+    private final SelenideElement resultTable = $(".table-responsive");
+
 
     //actions
     public RegistrationPage openPage() {
@@ -50,9 +65,9 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage setBirthDate(String day, String month, String year) {
+    public RegistrationPage setBirthDate(String year, String month, String day) {
         dateOfBirthInput.click();
-        calendarComponent.setDate(day, month, year);
+        calendarComponent.setDate(year,month,day);
         return this;
     }
 
@@ -61,6 +76,13 @@ public class RegistrationPage {
         subjectsInput.setValue(subject).pressEnter();
         return this;
     }
+
+    public RegistrationPage setMusic(String hobbies){
+        hobbiesInput.$(byText(hobbies)).click();
+        return this;
+    }
+
+
 
     public RegistrationPage setUploadPicture(String picture) {
         uploadPicture.uploadFromClasspath(picture);
